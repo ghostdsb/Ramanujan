@@ -1,0 +1,17 @@
+{
+    "name": "ramanujan",
+    "version": "0.0.1",
+    "description": "Mathematics Functions API",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nightcrawler",
+    "license": "ISC",
+    "devDependencies": {
+      "typescript": "^2.4.2"
+    },
+    "dependencies": {
+    }
+  }
+  
