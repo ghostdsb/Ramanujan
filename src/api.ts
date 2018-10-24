@@ -15,7 +15,10 @@ import {
     fox,
     getDegree,
     cleanCoeffs,
-    longDivisionTemp  
+    longDivisionTemp,
+    pDivision,
+    pMultiplication,
+    pAddition 
     } from "./utils/functions"
 
 import { FUNC } from "./utils/funcEnums"
@@ -24,18 +27,18 @@ const PRIMELIST = erastosthenes(Math.pow(10,7))
 
 const api = {
 
-    util(funcId:FUNC,funcParams){
-      switch (funcId){
-          case FUNC.DEGREE:
-            return getDegree(funcParams.cfs)
-          case FUNC.FDX:
-            return fdx(funcParams.cfs)
-          case FUNC.FOX:
-            return fox(funcParams.cfs,funcParams.x)
-          case FUNC.LONG_DIVISION:
-            return longDivisionTemp(funcParams.cfsDvd,funcParams.cfsDvr)
-      }  
-    },
+    // util(funcId:FUNC,funcParams){
+    //   switch (funcId){
+    //       case FUNC.DEGREE:
+    //         return getDegree(funcParams.cfs)
+    //       case FUNC.FDX:
+    //         return fdx(funcParams.cfs)
+    //       case FUNC.FOX:
+    //         return fox(funcParams.cfs,funcParams.x)
+    //       case FUNC.LONG_DIVISION:
+    //         return longDivisionTemp(funcParams.cfsDvd,funcParams.cfsDvr)
+    //   }  
+    // },
 
     isEven(val: number):boolean{
         if(val%2===0) return true
@@ -164,7 +167,25 @@ const api = {
             default:
                 return []
         }
+    },
+
+    newtonRaphson(coeffs:number[],x0:number):number{
+        let x1:number = newtonRaphson(coeffs,x0)
+        return x1
+    },
+
+    polynomialDivision(cfsDividend:number[],cfsDivisor:number[]):number[][]{
+        return pDivision(cfsDividend,cfsDivisor)
+    },
+
+    polynomialMultiplication(pol1:number[],pol2:number[]):number[]{
+        return pMultiplication(pol1,pol2)
+    },
+
+    polynomialAddition(pol1:number[],pol2:number[]):number[]{
+        return pAddition(pol1,pol2)
     }
+
 }
 
 module.exports.api = api
